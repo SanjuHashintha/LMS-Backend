@@ -8,6 +8,7 @@ import com.example.springsecuritymongo.repository.UserRepository;
 import com.example.springsecuritymongo.request.LoginRequest;
 import com.example.springsecuritymongo.request.SignUpRequest;
 import com.example.springsecuritymongo.response.JwtResponse;
+import com.example.springsecuritymongo.response.ResponseObject;
 import com.example.springsecuritymongo.service.UserDetailsImpl;
 import com.example.springsecuritymongo.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,12 +62,18 @@ public class AuthController {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body("Error: Username is already taken!");
+                    .body(new ResponseObject(
+                            "01",
+                            "failed",
+                            "Error: Username is already taken!"));
         }
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body("Error: Email is already in use!");
+                    .body(new ResponseObject(
+                            "01",
+                            "failed",
+                            "Error: Email is already in use!"));
         }
         // Create new user's account
         User user = new User(signUpRequest.getUsername(),
@@ -100,6 +107,10 @@ public class AuthController {
 //        }
         user.setRoles(strRoles);
         userRepository.save(user);
-        return ResponseEntity.ok("User registered successfully!");
+        return ResponseEntity.ok(new ResponseObject(
+                "00",
+                "success",
+                "User registered successfully"
+        ));
     }
 }
