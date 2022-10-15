@@ -1,14 +1,14 @@
-package com.LMS.contoller;
+package com.example.springsecuritymongo.controller;
 
 
-import com.LMS.service.EmailClientService;
+import com.example.springsecuritymongo.service.EmailClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin
-public class UserController {
+public class AnnounceController {
 
     @Autowired
     private EmailClientService service;

@@ -1,4 +1,4 @@
-package com.LMS.service;
+package com.example.springsecuritymongo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
