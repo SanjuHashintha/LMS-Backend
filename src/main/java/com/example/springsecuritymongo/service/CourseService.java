@@ -36,4 +36,10 @@ public class CourseService {
         course.setId(id);
         return courseRepository.save(course);
     }
+
+
+    public String Dcourse(Course course){
+        courseRepository.save(course);
+        return "Success";
+    }
 }

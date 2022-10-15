@@ -13,11 +13,17 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+@RequestMapping("/course")
 public class CourseController {
 
     @Autowired
  private CourseService courseService;
 
+    @PostMapping("dcourse")
+    public String dcourse(@RequestBody Course course){
+        return  courseService.Dcourse(course);
+
+    }
 
     @GetMapping("/course")
     public ResponseEntity <List<Course>> getCourse(){
