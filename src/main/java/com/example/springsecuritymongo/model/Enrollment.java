@@ -20,7 +20,7 @@ public class Enrollment {
     private String username;
     private String courseCode;
 
-    private double mark;
+    private double mark=-1;
 
 
     public Enrollment(String id, String username, String courseCode, double mark) {

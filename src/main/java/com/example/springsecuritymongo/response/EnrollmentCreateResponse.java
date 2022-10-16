@@ -15,4 +15,5 @@ public class EnrollmentCreateResponse {
     public EnrollmentCreateResponse(Enrollment enrollment) {
         this.enrollment = enrollment;
     }
+
 }
