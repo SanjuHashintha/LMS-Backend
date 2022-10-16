@@ -1,7 +1,10 @@
 package com.example.springsecuritymongo.controller;
 
 
+
 import com.example.springsecuritymongo.model.Course;
+import com.example.springsecuritymongo.request.CourseCreateRequest;
+import com.example.springsecuritymongo.response.CourseCreateResponse;
 import com.example.springsecuritymongo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,6 +49,15 @@ public class CourseController {
 
     }
 
+ @PostMapping("/course/add")
+ public ResponseEntity<CourseCreateResponse> addCourse(@RequestBody CourseCreateRequest courseRequest){
+     try {
+         return new ResponseEntity<>(courseService.addCourse(courseRequest), HttpStatus.OK);
+     } catch (Exception e){
+         return new ResponseEntity<> (null, HttpStatus.INTERNAL_SERVER_ERROR);
+     }
+
+ }
 
     @DeleteMapping("/course/delete/{id}")
     public ResponseEntity <String> deleteCourseById(@PathVariable String id){
@@ -63,8 +75,7 @@ public class CourseController {
      Course updateCourse = courseService.updateCourse(course, id);
      return new ResponseEntity<>(updateCourse, HttpStatus.OK);
     }
-
-
-
-
 }
+
+
+
