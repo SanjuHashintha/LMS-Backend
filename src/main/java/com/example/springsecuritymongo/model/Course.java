@@ -29,10 +29,6 @@ public class Course {
     private User lecturer = null;
     private Set<User> students = new HashSet<>();
 
-//    public Course(Object o, String courseCode, String courseName, String description) {
-//
-//    }
-
-
-
+    public Course(Object o, String courseCode, String courseName, String description) {
+    }
 }
