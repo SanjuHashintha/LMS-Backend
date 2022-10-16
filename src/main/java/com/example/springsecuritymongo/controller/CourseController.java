@@ -49,7 +49,7 @@ public class CourseController {
 
     }
 
- @PostMapping("/course/add")
+ @PostMapping("/add")
  public ResponseEntity<CourseCreateResponse> addCourse(@RequestBody CourseCreateRequest courseRequest){
      try {
          return new ResponseEntity<>(courseService.addCourse(courseRequest), HttpStatus.OK);
